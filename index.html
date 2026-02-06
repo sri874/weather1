@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="background-gradient"></div>
+
+    <main class="container">
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="search-bar">
+                <i class="fa-solid fa-location-dot location-icon"></i>
+                <input type="text" id="city-input" placeholder="Search city..." autocomplete="off">
+                <button id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <ul id="suggestions-list" class="suggestions-list hidden"></ul>
+            <div id="search-error" class="error-msg hidden"></div>
+        </section>
+
+        <!-- Weather Content (Hidden by default until search) -->
+        <div id="weather-container" class="weather-container hidden">
+
+            <!-- Current Weather -->
+            <section class="current-weather">
+                <div class="current-header">
+                    <h1 id="city-name">--</h1>
+                    <p id="current-date">--</p>
+                </div>
+
+                <div class="current-main">
+                    <div class="temp-container">
+                        <span id="current-temp" class="temp">--</span>
+                        <span class="unit">°C</span>
+                    </div>
+                    <div class="weather-icon-container">
+                        <i id="weather-icon" class="weather-icon fa-solid fa-cloud"></i>
+                        <p id="weather-desc" class="condition">--</p>
+                    </div>
+                </div>
+
+                <div class="current-details">
+                    <div class="detail-card">
+                        <i class="fa-solid fa-temperature-half"></i>
+                        <div class="detail-info">
+                            <span class="label">Feels Like</span>
+                            <span id="feels-like" class="value">--°</span>
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <i class="fa-solid fa-wind"></i>
+                        <div class="detail-info">
+                            <span class="label">Wind</span>
+                            <span id="wind-speed" class="value">-- km/h</span>
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <i class="fa-solid fa-droplet"></i>
+                        <div class="detail-info">
+                            <span class="label">Humidity</span>
+                            <span id="humidity" class="value">--%</span>
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <i class="fa-regular fa-compass"></i>
+                        <div class="detail-info">
+                            <span class="label">Pressure</span>
+                            <span id="pressure" class="value">-- hPa</span>
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <i class="fa-solid fa-eye"></i>
+                        <div class="detail-info">
+                            <span class="label">Visibility</span>
+                            <span id="visibility" class="value">-- km</span>
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <i class="fa-solid fa-umbrella"></i>
+                        <div class="detail-info">
+                            <span class="label">Precipitation</span>
+                            <span id="precipitation" class="value">--%</span>
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <i class="fa-regular fa-sun"></i>
+                        <div class="detail-info">
+                            <span class="label">Sunrise</span>
+                            <span id="sunrise" class="value">--:--</span>
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <i class="fa-solid fa-moon"></i>
+                        <div class="detail-info">
+                            <span class="label">Sunset</span>
+                            <span id="sunset" class="value">--:--</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Forecast -->
+            <section class="forecast-section">
+                <h2>7-Day Forecast</h2>
+                <div id="forecast-grid" class="forecast-grid">
+                    <!-- Forecast items will be injected here -->
+                </div>
+            </section>
+
+            <!-- Major TN Districts -->
+            <section class="districts-section">
+                <h2>Major Tamil Nadu Districts</h2>
+                <div id="districts-grid" class="districts-grid">
+                    <!-- Districts will be injected here -->
+                </div>
+            </section>
+        </div>
+
+        <!-- Loading State -->
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+        </div>
+
+        <!-- Welcome State -->
+        <div id="welcome-msg" class="welcome-msg">
+            <i class="fa-solid fa-cloud-sun-rain"></i>
+            <h2>Discover the Weather</h2>
+            <p>Enter a city name to get started.</p>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
